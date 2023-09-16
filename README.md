@@ -9,7 +9,8 @@ This Python script simulates a Linear Feedback Shift Register (LFSR) and calcula
    ```bash
    git clone https://github.com/yourusername/rmehmood786.git
 
-Functionality
+## Functionality
+
 find_percentage_agreement(s1, s2): Calculates the percentage agreement between two sequences of equal length.
 
 LFSR(initial_state): Simulates LFSR operation with the provided initial state and tap sequences.
