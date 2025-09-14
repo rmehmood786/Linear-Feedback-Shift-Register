@@ -1,20 +1,47 @@
-# Linear Feedback Shift Register (LFSR) Implementation
+# Linear Feedback Shift Register (LFSR)
 
-This Python script simulates a Linear Feedback Shift Register (LFSR) and calculates the percentage agreement between the generated LFSR sequence and a sequence read from a file.
+A clean, assignment-ready implementation of a **Fibonacci LFSR** in Python with:
 
-## Usage
+- a **basic 4-bit demo** (prints 30 iterations exactly as in COM6014 Task 1),
+- a **general, reconfigurable LFSR class** (size/taps/state),
+- and an optional helper to compute **percentage agreement** between a generated stream and a reference sequence.
 
-1. Clone the repository to your local machine:
+> **Conventions (Fibonacci, shift-right)**
+>
+> - State is an `n`-bit integer, `0 < state < 2^n`.
+> - **Output bit** = LSB (R0) before shifting.
+> - **Feedback bit** = XOR parity of the **tap positions** (0-based; `0 = LSB`) in the current state.
+> - New state:  
+>   `state = (state >> 1) | (feedback << (n - 1))`.
 
-   ```bash
-   git clone https://github.com/yourusername/rmehmood786.git
+---
 
-## Functionality
+## ✨ Features
 
-find_percentage_agreement(s1, s2): Calculates the percentage agreement between two sequences of equal length.
+- **Basic 4-bit LFSR demo**: `n=4`, taps `(3,2)`, initial state `0b0110`; prints `State` and `NextBit(R0)` for **30** iterations.  
+  (The first **15** states repeat — period = `2^4 − 1 = 15`.)
+- **General LFSR class**:
+  - set/get **size**, **state**, **tap sequence**
+  - **next_bit()** updates state and returns the next stream bit
+  - convenience methods: **period()**, **bits(k)**, **get_state_bits()**
+- **Percentage agreement** utility (optional): compare a generated bitstream with a reference file.
 
-LFSR(initial_state): Simulates LFSR operation with the provided initial state and tap sequences.
+---
 
-initial_state_populator(size_of_register): Populates the initial state interactively (currently commented out).
+## 📦 Requirements
 
-initial_tapSequence_populator(): Populates the tap sequences interactively (currently commented out).
+- Python **3.10+**
+- No external dependencies
+
+---
+
+## 🚀 Quickstart
+
+Clone and run:
+
+```bash
+git clone https://github.com/rmehmood786/Linear-Feedback-Shift-Register.git
+cd Linear-Feedback-Shift-Register
+
+# Run the assignment demos (basic + general)
+python LFSR.py
