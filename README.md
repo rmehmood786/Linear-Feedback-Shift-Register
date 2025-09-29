@@ -1,6 +1,6 @@
 # Linear Feedback Shift Register (LFSR)
 
-A clean, assignment-ready implementation of a **Fibonacci LFSR** in Python with:
+A clean and experimental implementation of a **Fibonacci LFSR** in Python with:
 
 - a **basic 4-bit demo** (prints 30 iterations exactly as in COM6014 Task 1),
 - a **general, reconfigurable LFSR class** (size/taps/state),
